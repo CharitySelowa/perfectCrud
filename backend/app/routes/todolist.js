@@ -6,6 +6,7 @@ const bodyparse = require('body-parser'); //converting from json format to norma
 const create = require('../controllers/create');
 const update = require('../controllers/update');
 const gettodolist = require('../controllers/gettodolist');
+const deletelist = require('../controllers/deletelist');
 
 
 
@@ -15,6 +16,7 @@ const gettodolist = require('../controllers/gettodolist');
 app.post('/insert',create)
 app.put('/update',update)
 app.get('/gettodolist',gettodolist)
+app.delete('/deletelist',deletelist)
 
 
 module.exports = app
