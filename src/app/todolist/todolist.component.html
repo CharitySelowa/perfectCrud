@@ -1,0 +1,71 @@
+<div class="overflow-x-auto">
+   <table class="table w-full">
+     <!-- head -->
+     <thead>
+       <tr>
+         <th></th>
+         <th>title</th>
+         <th>description</th>
+         <th></th>
+       </tr>
+     </thead>
+     <tbody>
+       <!-- row 1 -->
+       <tr *ngFor="let list of tlist,let x=index">
+         <th>{{x+1}}</th>
+         <td>{{list.title}}</td>
+         <td>{{list.description}}</td>
+         <td><label for="my-modal" class="btn modal-button">Edit</label></td>
+       </tr>
+      
+     </tbody>
+   </table>
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+
+ <!-- The button to open modal -->
+
+
+<!-- Put this part before </body> tag -->
+<input type="checkbox" id="my-modal" class="modal-toggle" />
+<div class="modal">
+  <div class="modal-box">
+   <input type="text" placeholder="Enter title" class="input input-bordered w-full max-w-xs" /><br>
+   <textarea class="textarea" placeholder="Description"></textarea>
+    <div class="modal-action">
+      <label for="my-modal" class="btn">Submit</label>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- The button to open modal -->
+<label for="my-modal" class="btn modal-button" (click)="addList()" >Add new list</label>
+
+<!-- Put this part before </body> tag -->
+
+<input type="checkbox" id="my-modal" class="modal-toggle" />
+<div class="modal">
+  <div class="modal-box">
+   <form [formGroup]="listForm">
+   <input type="text" placeholder="Enter title" formControlName="title" class="input input-bordered w-full max-w-xs" /><br>
+   <textarea class="textarea" formControlName="description" placeholder="Description"></textarea>
+   </form>
+    <div class="modal-action">
+      <button  class="btn btn-primary" (click)="addList()">Submit</button>
+    </div>
+  </div>
+</div>
+
+
